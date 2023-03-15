@@ -116,11 +116,12 @@ cc -std=c11 -Wall -Wextra -c -o example.o example.c
 cc -std=c11 -Wall -Wextra -c -o other.o other.c
 cc  example.o other.o -o example
 ```
-
+hier wird erst eine Object-Datei, dann andere kompiliert und am Ende zusammengefügt
 ---
 
 - Utilize Make's implicit rules
   - Pattern matching on target and dependencies
+  - es gibt implizite Regeln; z.B. wenn Dependencies c-Datein sind oder wenn Dependencies o-Datein sind
 
 ```make
 CFLAGS = -std=c11 -Wall -Wextra
@@ -158,7 +159,8 @@ example ← example.o ← example.c
 ---
 
 - First (default) target should be `all`
-- `clean` target should be present
+- `clean` target should be present; alle Target- und Object-Files werden removed
+- zuletzt die Binary, die man compilen will; so kann man mit make wieder ausführen
 
 ```make
 CFLAGS = -std=c11 -Wall -Wextra
